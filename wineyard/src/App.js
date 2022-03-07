@@ -1,11 +1,19 @@
 import logo from "./logo.svg";
 import "./App.css";
 import { Homepage } from "./Components/Homepage";
-
+import { Navbar } from "./Components/Navbar";
+import { Routes, Route } from "react-router-dom";
+import { CartPage } from "./Components/CartPage";
+import { WishlistPage } from "./Components/WishlistPage";
 function App() {
   return (
     <div className="App">
-      <Homepage />
+      {/* <Navbar /> */}
+      <Routes>
+        <Route path="/" element={<Homepage />}></Route>
+        <Route path="/cart" element={<CartPage />}></Route>
+        <Route path="/wishlist" element={<WishlistPage />}></Route>
+      </Routes>
     </div>
   );
 }
