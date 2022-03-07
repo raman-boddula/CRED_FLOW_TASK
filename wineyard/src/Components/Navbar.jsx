@@ -1,9 +1,11 @@
+import { Input } from 'antd'
 import {BsCart4} from 'react-icons/bs'
 export const Navbar = () => {
-    return (<div style={{display:'flex',width:"100vw",justifyContent:'space-between',border:'1px solid black'}}>
-        <div className="navbarlogo">
-            <img src="https://media.istockphoto.com/vectors/red-wine-glass-icon-illustration-vector-id1132889797?k=20&m=1132889797&s=612x612&w=0&h=789LAtKiSQynEGPCS_j3nivLwWPkaCgDAYeLeCM6rYI=" alt="logo" />
+    return (<div style={{display:'flex',width:"100%",justifyContent:'space-between',border:'1px solid black'}}>
+        <div className='logoDiv'>
+            <img src="https://i.pinimg.com/550x/ef/4d/ff/ef4dff19cc7a90b9b7af8894d1ff5905.jpg" alt="logoo"/>
         </div>
-        <div><BsCart4/></div>
+        <div style={{paddingTop:"0.45em"}}><Input/></div>
+        <div><BsCart4 style={{height:"30px",width:"30px"}}/></div>
     </div>)
 }

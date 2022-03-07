@@ -13,6 +13,33 @@
     width: 25px;
 }
 
+.addressDiv {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 35%;
+    height: 450px;
+    border-radius: 1em;
+    background-image: linear-gradient(to right, white, #b8fff9);
+}
+
+.addressDiv input {
+    width: 50%;
+    margin: 1em
+}
+
+.closing {
+    float: right;
+    margin: 10px 10px 0 0;
+    font-size: xx-large;
+    cursor: pointer;
+    background-color: black;
+    color: white;
+    border-radius: 50%;
+}
+
 .navbarlogo img {
     width: 15%;
     border: 1px solid black;
@@ -20,4 +47,9 @@
 
 .productDiv:hover {
     cursor: pointer;
+}
+
+.logoDiv img {
+    width: 50px;
+    height: 50px
 }

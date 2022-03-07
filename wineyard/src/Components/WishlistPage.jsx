@@ -1,10 +1,11 @@
-import { Button, Empty } from "antd"
+import { Button, Empty, Input } from "antd"
 import React from "react";
-import { AiTwotoneStar } from "react-icons/ai";
+import { AiOutlineClose, AiTwotoneStar } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import { WineContext } from '../Context/Context';
 
 export const WishlistPage = () => {
+    const [popup, setPopup] = React.useState(false);
     let { wishlist, handleWishlist, handleCart, removeWishlist } = React.useContext(WineContext);
     const handleWishlistToCart = (id) => {
         handleCart(id);
@@ -13,7 +14,7 @@ export const WishlistPage = () => {
     return (
         <div>
              <div>
-                <h1>Cart page</h1>
+                <h1>Wishlist page</h1>
                 <Link to='/cart'><Button style={{marginLeft:"61em",marginBottom:"2em"}}>Go to Cart</Button></Link>
                 {wishlist.length > 0 ? <div style={{ width: "50%",marginLeft:"25%"}}>
                 {wishlist.map((el)=>{
@@ -29,9 +30,8 @@ export const WishlistPage = () => {
                             </div>
                     )
                 })}
-                <Button>Checkout</Button>
                 </div>:<Empty/>}
-             </div>
+            </div>
         </div>
     )
 }

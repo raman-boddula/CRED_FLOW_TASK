@@ -30,7 +30,9 @@ export const Homepage = () => {
         setPagination(pageData);
     }, [page, data]) 
     return (<>
-        <h1> WineYard Homepage</h1>
+        <marquee style={{ width:"60%",direction:"left",height:"100px",fontSize:"3em",fontFamily:"Helvetica"}}>
+            Welcome to WineYard
+        </marquee>
         <div style={{ display: "flex",backgroundColor:"#9AD0EC",justifyContent: "space-evenly" }}>
             <div><Button type="ghost" onClick={()=>setQuery('reds')} >reds</Button></div>
             <div><Button type="ghost" onClick={()=>setQuery('whites')} >whites</Button></div>
