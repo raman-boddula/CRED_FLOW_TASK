@@ -38,9 +38,12 @@ export const Homepage = () => {
             <div><Button type="ghost" onClick={()=>setQuery('dessert')} >dessert</Button></div>
             <div><Button type="ghost" onClick={()=>setQuery('port')}>port</Button></div>
         </div>
-        <marquee style={{ width:"60%",direction:"left",height:"100px",fontSize:"3em",fontFamily:"Helvetica"}}>
+        <marquee style={{ width:"60%",direction:"left",height:"100px",fontSize:"2em",fontFamily:"Helvetica",color:"#203239"}}>
             Welcome to WineYard
         </marquee>
+        <div style={{padding:'2em'}}>
+        {pagination.length>0?<Pagination onChange={pageChange} total={data.length} />:null}
+        </div>
         {
             pagination.length > 0 ?<div style={{display:"flex"}}> <div style={{display:"grid",gridTemplateColumns:"repeat(3,33%)",width:"80%"}}>
                 {pagination.map((el) => {
@@ -56,7 +59,7 @@ export const Homepage = () => {
                 
             </div>
                 <div style={{ marginLeft: '4em' }}>
-        <p>Sort By Reviews
+        <p>Filter By Reviews
             <div>
                 <Select style={{width:"100%"}} onChange={handleFilterReviews}>
                     <Option value="1000">Above 1000</Option>

@@ -3,10 +3,14 @@ import React from 'react';
 export const WineContext = React.createContext();
 
 export const WineContextProvider = ({ children }) => {
+    const [data, setData] = React.useState([]);
     const [cart, setCart] = React.useState([]);
     const [wishlist, setWishlist] = React.useState([]);
     const handleCart = (item) => {
         setCart([...cart, item]);
+    }
+    const handleData = (item) => {
+        setData([...item])   
     }
     const removeCart = (id) => {
         let modified = cart.filter((el) => {
@@ -26,6 +30,6 @@ export const WineContextProvider = ({ children }) => {
     }
     console.log(cart.length > 0 ? cart:null)
     return (
-        <WineContext.Provider value={{cart,wishlist,handleCart,handleWishlist,removeCart,removeWishlist}}>{children}</WineContext.Provider>
+        <WineContext.Provider value={{cart,wishlist,handleData,data,handleCart,handleWishlist,removeCart,removeWishlist}}>{children}</WineContext.Provider>
     )
 }

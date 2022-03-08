@@ -16,18 +16,28 @@ export const CartPage = () => {
         let { name, value } = e.target;
         setDetails({ ...details, [name]: value });
     }
+
     const handleClickAddress = (e) => {
         e.preventDefault();
-        setPopup(!popup)
         console.log('details', details)
-        navigate('/summary')
+        if (Object.keys(details).length < 6) {
+            console.log('here')
+            alert("Please fill the address properly");
+        } else {
+            setPopup(!popup)
+            while (cart.length) {
+                cart.pop();
+            }
+            
+            navigate('/summary')
+         }
         
     }
     return (
         <div>
         <div  style={{filter:popup?"blur(2px)":'blur(0px)'}} >
             <h1>Cart page</h1>
-            <Link to='/wishlist'><Button  style={{marginLeft:"60em",marginBottom:"2em"}}>Go to Wishlist</Button></Link>
+                <div style={{ display: "flex", justifyContent:'space-between'}}> <h2 style={{marginLeft:"25em"}}>Total Quantity : { cart.length} </h2> <Link to='/wishlist'><Button  style={{marginRight:"37em",marginBottom:"2em"}}>Go to Wishlist</Button></Link></div>
             {cart.length > 0 ? <div style={{ width: "50%",marginLeft:"25%"}}>
                 {cart.map((el)=>{
                     return(
@@ -37,20 +47,22 @@ export const CartPage = () => {
                             <div><p style={{}}>Rating:{el.rating.average} <AiTwotoneStar style={{color:'yellow'}}/></p></div>
                             <div><p>Reviews :{el.rating.reviews}</p> </div>
                             </div>
-                            <Button type='primary' onClick={()=>handleWishAndRemove(el)}>SAVE FOR LATER</Button>
+                            <div style={{display:"flex",flexDirection:"column"}}>
+                            <Button type='primary' style={{margin:"0.5em"}} onClick={()=>handleWishAndRemove(el)}>SAVE FOR LATER</Button>
                             <Button type='danger' onClick={()=>removeCart(el)}>REMOVE</Button>
+                            </div>
                             </div>
                     )
                 })}
-                <Button onClick={()=>setPopup(!popup)}>Checkout</Button>
+                <Button type="primary" onClick={()=>setPopup(!popup)}>Checkout</Button>
                 </div> : <Empty />}
             </div>
             <div>
                 {popup ?
-                    <div className="addressDiv">
+                    <div className="addressDiv" style={{alignItems:"left",justifyContent:"space-between"}}>
                         <div ><AiOutlineClose className="closing" onClick={() => setPopup(false)} /></div>
                         <br/>
-                        <div>
+                        <div >
                          <label>Name <Input placeholder="enter your name"  name="Name"  onChange={handleAddress} required /></label> <br></br>  
                            <label>Email<Input placeholder="enter your email"  name="Email"  onChange={handleAddress} required/></label><br></br> 
                            <label>Mobile Number <Input placeholder="enter your mobile number"  name="Mobile Number"  onChange={handleAddress} required/></label><br></br> 
