@@ -30,10 +30,7 @@ export const Homepage = () => {
         setPagination(pageData);
     }, [page, data]) 
     return (<>
-        <marquee style={{ width:"60%",direction:"left",height:"100px",fontSize:"3em",fontFamily:"Helvetica"}}>
-            Welcome to WineYard
-        </marquee>
-        <div style={{ display: "flex",backgroundColor:"#9AD0EC",justifyContent: "space-evenly" }}>
+        <div className='categories' style={{ display: "flex",backgroundColor:"#9AD0EC",justifyContent: "space-evenly",padding:'1em' }}>
             <div><Button type="ghost" onClick={()=>setQuery('reds')} >reds</Button></div>
             <div><Button type="ghost" onClick={()=>setQuery('whites')} >whites</Button></div>
             <div><Button type="ghost" onClick={()=>setQuery('sparkling')} >sparkling</Button></div>
@@ -41,15 +38,9 @@ export const Homepage = () => {
             <div><Button type="ghost" onClick={()=>setQuery('dessert')} >dessert</Button></div>
             <div><Button type="ghost" onClick={()=>setQuery('port')}>port</Button></div>
         </div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-        <Link to="cart"> <Button>Go To Cart</Button></Link>
-           <br/>
-        <br/>
-        <br/>
-        <br/>
+        <marquee style={{ width:"60%",direction:"left",height:"100px",fontSize:"3em",fontFamily:"Helvetica"}}>
+            Welcome to WineYard
+        </marquee>
         {
             pagination.length > 0 ?<div style={{display:"flex"}}> <div style={{display:"grid",gridTemplateColumns:"repeat(3,33%)",width:"80%"}}>
                 {pagination.map((el) => {
